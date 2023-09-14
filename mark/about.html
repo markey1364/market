@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="about.css">
+    <title>MY EVENT PAGE</title>
+
+     <nav>
+         <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+        }
+        nav {
+    background-color: #444;
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 10px;
+}
+
+
+        .event-box {
+            border: 1px solid #ccc;
+            margin: 20px;
+            padding: 10px;
+            background-color: #f5f5f5;
+        }
+       
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.event-box {
+    border: 1px solid #ccc;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #333;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+p {
+    margin: 0;
+}
+
+#animationBox {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    animation: animateBox 2s ease-in-out infinite;
+}
+
+
+@keyframes animateBox {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MY EVENTS PAGE</h1>
+    </header>
+    <div class="container">
+        <div class="event-box">
+            <h2>Click Event</h2>
+            <button id="clickButton">Click Me</button>
+        </div>
+
+        <div class="event-box">
+            <h2>Blur Event</h2>
+            <input type="text" id="blurInput" placeholder="Click outside this input">
+        </div>
+
+        <div class="event-box">
+            <h2>Change Event</h2>
+            <select id="changeSelect">
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+            </select>
+        </div>
+
+        <div class="event-box">
+            <h2>Focus Event</h2>
+            <input type="text" id="focusInput" placeholder="Click inside this input">
+        </div>
+
+        <div class="event-box">
+            <h2>Focusout Event</h2>
+            <input type="text" id="focusoutInput" placeholder="Click inside and then outside this input">
+        </div>
+
+        <div class="event-box">
+            <h2>Mouseover Event</h2>
+            <p id="mouseoverPara">Hover over this paragraph.</p>
+        </div>
+
+        <div class="event-box">
+            <h2>Resize Event</h2>
+            <p id="resizePara">Resize the window to trigger the event.</p>
+        </div>
+
+        <div class="event-box">
+            <h2>Animation Start and End Events</h2>
+            <div id="animationBox">Click to start animation</div>
+        </div>
+    </div>
+
+    <script>
+       
+        const clickButton = document.getElementById("clickButton");
+        const blurInput = document.getElementById("blurInput");
+        const changeSelect = document.getElementById("changeSelect");
+        const focusInput = document.getElementById("focusInput");
+        const focusoutInput = document.getElementById("focusoutInput");
+        const mouseoverPara = document.getElementById("mouseoverPara");
+        const resizePara = document.getElementById("resizePara");
+        const animationBox = document.getElementById("animationBox");
+
+        clickButton.addEventListener("click", () => {
+            alert("Click event occurred!");
+        });
+
+        blurInput.addEventListener("blur", () => {
+            alert("Blur event occurred!");
+        });
+
+        changeSelect.addEventListener("change", () => {
+            alert("Change event occurred!");
+        });
+
+        focusInput.addEventListener("focus", () => {
+            alert("Focus event occurred!");
+        });
+
+        focusoutInput.addEventListener("focusout", () => {
+            alert("Focusout event occurred!");
+        });
+
+        mouseoverPara.addEventListener("mouseover", () => {
+            alert("Mouseover event occurred!");
+        });
+
+        window.addEventListener("resize", () => {
+            resizePara.textContent = "Window has been resized!";
+        });
+
+        let animationStarted = false;
+        animationBox.addEventListener("animationstart", () => {
+            if (!animationStarted) {
+                alert("Animation started!");
+                animationStarted = true;
+            }
+        });
+
+        animationBox.addEventListener("animationend", () => {
+            alert("Animation ended!");
+            animationStarted = false;
+        });
+    </script>
+</body>
+</html>

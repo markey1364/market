@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Image and Video Gallery</title>
+</head>
+<body>
+  
+    <nav>
+         <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+       
+    </nav>
+   
+    <div class="container">
+        <div class="gallery">
+            <div class="item">
+                <img src="h.jpg" alt="Image 1">
+                <button onclick="changeMedia('b.jpg', this)">changeMedia 1</button>
+            </div>
+            <div class="item">
+                <img src="c.jpg" alt="Image 2">
+                <button onclick="changeMedia('d.jpg', this)">changeMedia 2</button>
+            </div>
+            <div class="item">
+                <img src="e.jpg" alt="Image 3">
+                <button onclick="changeMedia('f.jpg', this)">changeMedia 3</button>
+            </div>
+            <div class="item">
+                <video src="a.mp4" controls></video>
+                <button onclick="changeMedia('b.mp4', this)">change Video 1</button>
+            </div>
+            <div class="item">
+                <video src="f.mp4" controls></video>
+                <button onclick="changeMedia('a.mp4', this)">change Video 2</button>
+            </div>
+            <div class="item">
+                <video src="a.mp4" controls></video>
+                <button onclick="changeMedia('b.mp4', this)">change Video 3</button>
+            </div>
+        </div>
+    </div>
+
+  
+    <script>
+        function changeMedia(newMediaSrc, button) {
+           
+            var mediaElement = button.parentElement.querySelector('img, video');
+
+            mediaElement.src = newMediaSrc;
+
+            if (mediaElement.tagName === 'VIDEO') {
+                mediaElement.load();
+            }
+        }
+    </script>
+</body>
+</html>
